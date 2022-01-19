@@ -40,4 +40,4 @@ popd
 sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
 
 # Build x86_64 with Linux Kernel 5.10
-sed -i "s/5.4/5.10/g" target/linux/x86/Makefile
+# sed -i "s/5.4/5.10/g" target/linux/x86/Makefile
