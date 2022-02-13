@@ -9,7 +9,13 @@
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
 
 # Mod zzz-default-settings
-pushd package/emortal/default-settings/files
+#pushd package/emortal/default-settings/files
+#sed -i '/http/d' zzz-default-settings
+#sed -i '/openwrt_luci/d' zzz-default-settings
+#popd
+
+# Mod zzz-default-settings
+pushd package/lean/default-settings/files
 sed -i '/http/d' zzz-default-settings
 sed -i '/openwrt_luci/d' zzz-default-settings
 popd
@@ -41,3 +47,10 @@ sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
 
 # Build x86_64 with Linux Kernel 5.10
 # sed -i "s/5.4/5.10/g" target/linux/x86/Makefile
+
+# Comment Lean's Package
+sed -i -e '1 s/^/#/' -i -e '2 s/^/#/' feeds.conf.default
+
+# Add immortalwrt's Package and Luci
+echo 'src-git packages https://github.com/immortalwrt/packages.git' >>feeds.conf.default
+echo 'src-git luci https://github.com/immortalwrt/luci.git' >>feeds.conf.default
