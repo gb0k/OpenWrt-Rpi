@@ -50,7 +50,8 @@ sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
 
 # Comment Lean's Package
 #sed -i -e '1 s/^/#/' -i -e '2 s/^/#/' feeds.conf.default
+sed -i -e '2 s/^/#/' feeds.conf.default
 
 # Add immortalwrt's Package and Luci
 #echo 'src-git packages https://github.com/immortalwrt/packages.git' >>feeds.conf.default
-#echo 'src-git luci https://github.com/immortalwrt/luci.git' >>feeds.conf.default
+echo 'src-git luci https://github.com/immortalwrt/luci.git' >>feeds.conf.default
